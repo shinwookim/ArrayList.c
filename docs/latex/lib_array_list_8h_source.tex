@@ -1,0 +1,47 @@
+\doxysection{lib\+Array\+List.\+h}
+\hypertarget{lib_array_list_8h_source}{}\label{lib_array_list_8h_source}\index{src/libArrayList.h@{src/libArrayList.h}}
+\mbox{\hyperlink{lib_array_list_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ARRAYLIST\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ARRAYLIST\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00005\ \textcolor{comment}{/********}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Data\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ ********/}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ DEFAULT\_CAPACITY\ 10}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_array_list_acc412139cb8cf1d2a61c5026233d7f7b}{size}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ number\ of\ elements\ currently\ in\ the\ list}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_array_list_ae291422a8f924407557f521f6af5705c}{capacity}};\ \ \ \ \ \textcolor{comment}{//\ maximum\ number\ of\ elements\ that\ fit\ in\ current\ allocated\ memory}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_array_list_a754da3b6f54ea451dab023802e107c93}{element\_size}};\ \textcolor{comment}{//\ size\ of\ each\ element}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{struct_array_list_a820538340f79ac1f9d9e198138d2a844}{data}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pointer\ to\ allocated\ memory}}
+\DoxyCodeLine{00015\ \}\ \mbox{\hyperlink{struct_array_list}{ArrayList}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{/**************}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ Operations\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ **************/}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00027\ \mbox{\hyperlink{struct_array_list}{ArrayList}}\ *\mbox{\hyperlink{lib_array_list_8h_a08b6a14a29bb856b73a836822567472d}{ArrayList\_new}}(\textcolor{keywordtype}{size\_t}\ element\_size);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lib_array_list_8h_a4b50548ab8722e66e3c5bc4ab02bd337}{ArrayList\_free}}(\mbox{\hyperlink{struct_array_list}{ArrayList}}\ *list);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{lib_array_list_8h_a7892289b21d7b9e79232423b69295b6f}{ArrayList\_size}}(\mbox{\hyperlink{struct_array_list}{ArrayList}}\ *list);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lib_array_list_8h_a745e194cec179a9ab10a72597e8f2972}{ArrayList\_isEmpty}}(\mbox{\hyperlink{struct_array_list}{ArrayList}}\ *list);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lib_array_list_8h_adc260bb15c12e5c6045139562038a634}{ArrayList\_trimToSize}}(\mbox{\hyperlink{struct_array_list}{ArrayList}}\ *list);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lib_array_list_8h_a9c18061b3fee5c5c14d5eb1755aa2f2a}{ArrayList\_ensureCapacity}}(\mbox{\hyperlink{struct_array_list}{ArrayList}}\ *list,\ \textcolor{keywordtype}{size\_t}\ min\_capacity);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lib_array_list_8h_a2804fb6af506126b08cec8223937b99b}{ArrayList\_add}}(\mbox{\hyperlink{struct_array_list}{ArrayList}}\ *list,\ \textcolor{keywordtype}{size\_t}\ index,\ \textcolor{keywordtype}{void}\ *E);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lib_array_list_8h_aa7e966cedd7f0f9a25c82ecf6a326487}{ArrayList\_append}}(\mbox{\hyperlink{struct_array_list}{ArrayList}}\ *list,\ \textcolor{keywordtype}{void}\ *E);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lib_array_list_8h_a28bac2cfbe8ffa04bdaa44d536996a82}{ArrayList\_remove}}(\mbox{\hyperlink{struct_array_list}{ArrayList}}\ *list,\ \textcolor{keywordtype}{size\_t}\ index);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{lib_array_list_8h_a5af1b29483f31d8ce919e88ca96e0545}{ArrayList\_get}}(\mbox{\hyperlink{struct_array_list}{ArrayList}}\ *list,\ \textcolor{keywordtype}{size\_t}\ index);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ARRAYLIST\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

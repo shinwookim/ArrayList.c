@@ -1,0 +1,242 @@
+\doxysection{src/lib\+Array\+List.h File Reference}
+\hypertarget{lib_array_list_8h}{}\label{lib_array_list_8h}\index{src/libArrayList.h@{src/libArrayList.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_array_list}{Array\+List}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lib_array_list_8h_a2af6bf843475565a9681f9449a3d5cc2}{DEFAULT\+\_\+\+CAPACITY}}~10
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lib_array_list_8h_a08b6a14a29bb856b73a836822567472d}{Array\+List\+\_\+new}} (size\+\_\+t element\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Constructs an empty list with an initial capacity of ten. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lib_array_list_8h_a4b50548ab8722e66e3c5bc4ab02bd337}{Array\+List\+\_\+free}} (\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}list)
+\begin{DoxyCompactList}\small\item\em Destructs the list by freeing alloacted memory. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{lib_array_list_8h_a7892289b21d7b9e79232423b69295b6f}{Array\+List\+\_\+size}} (\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}list)
+\begin{DoxyCompactList}\small\item\em Returns the number of elements in this list. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{lib_array_list_8h_a745e194cec179a9ab10a72597e8f2972}{Array\+List\+\_\+is\+Empty}} (\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}list)
+\begin{DoxyCompactList}\small\item\em Returns true if this list contains no elements. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lib_array_list_8h_adc260bb15c12e5c6045139562038a634}{Array\+List\+\_\+trim\+To\+Size}} (\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}list)
+\begin{DoxyCompactList}\small\item\em Trims the capacity of this \doxylink{struct_array_list}{Array\+List} instance to be the list\textquotesingle{}s current size. An application can use this operation to minimize the storage of an \doxylink{struct_array_list}{Array\+List} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lib_array_list_8h_a9c18061b3fee5c5c14d5eb1755aa2f2a}{Array\+List\+\_\+ensure\+Capacity}} (\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}list, size\+\_\+t min\+\_\+capacity)
+\begin{DoxyCompactList}\small\item\em Increases the capacity of this \doxylink{struct_array_list}{Array\+List} instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity parameter. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{lib_array_list_8h_a2804fb6af506126b08cec8223937b99b}{Array\+List\+\_\+add}} (\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}list, size\+\_\+t index, void \texorpdfstring{$\ast$}{*}E)
+\begin{DoxyCompactList}\small\item\em Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{lib_array_list_8h_aa7e966cedd7f0f9a25c82ecf6a326487}{Array\+List\+\_\+append}} (\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}list, void \texorpdfstring{$\ast$}{*}E)
+\begin{DoxyCompactList}\small\item\em Appends the specified element to the end of this list. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{lib_array_list_8h_a28bac2cfbe8ffa04bdaa44d536996a82}{Array\+List\+\_\+remove}} (\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}list, size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Removes the element at the specified position in this list. Shifts any subsequent elements to the left (subtracts one from their indices). \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lib_array_list_8h_a5af1b29483f31d8ce919e88ca96e0545}{Array\+List\+\_\+get}} (\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}list, size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Returns the element at the specified position in this list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{lib_array_list_8h_a2af6bf843475565a9681f9449a3d5cc2}\label{lib_array_list_8h_a2af6bf843475565a9681f9449a3d5cc2} 
+\index{libArrayList.h@{libArrayList.h}!DEFAULT\_CAPACITY@{DEFAULT\_CAPACITY}}
+\index{DEFAULT\_CAPACITY@{DEFAULT\_CAPACITY}!libArrayList.h@{libArrayList.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_CAPACITY}{DEFAULT\_CAPACITY}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+CAPACITY~10}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{lib_array_list_8h_a2804fb6af506126b08cec8223937b99b}\label{lib_array_list_8h_a2804fb6af506126b08cec8223937b99b} 
+\index{libArrayList.h@{libArrayList.h}!ArrayList\_add@{ArrayList\_add}}
+\index{ArrayList\_add@{ArrayList\_add}!libArrayList.h@{libArrayList.h}}
+\doxysubsubsection{\texorpdfstring{ArrayList\_add()}{ArrayList\_add()}}
+{\footnotesize\ttfamily bool Array\+List\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{size\+\_\+t}]{index,  }\item[{void \texorpdfstring{$\ast$}{*}}]{E }\end{DoxyParamCaption})}
+
+
+
+Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & -\/ a pointer to an \doxylink{struct_array_list}{Array\+List}. \\
+\hline
+{\em index} & -\/ index at which the specified element is to be inserted \\
+\hline
+{\em E} & -\/ pointer to the element to be inserted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on sucess 
+
+false on fail 
+\end{DoxyReturn}
+\Hypertarget{lib_array_list_8h_aa7e966cedd7f0f9a25c82ecf6a326487}\label{lib_array_list_8h_aa7e966cedd7f0f9a25c82ecf6a326487} 
+\index{libArrayList.h@{libArrayList.h}!ArrayList\_append@{ArrayList\_append}}
+\index{ArrayList\_append@{ArrayList\_append}!libArrayList.h@{libArrayList.h}}
+\doxysubsubsection{\texorpdfstring{ArrayList\_append()}{ArrayList\_append()}}
+{\footnotesize\ttfamily bool Array\+List\+\_\+append (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{void \texorpdfstring{$\ast$}{*}}]{E }\end{DoxyParamCaption})}
+
+
+
+Appends the specified element to the end of this list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & -\/ a pointer to an \doxylink{struct_array_list}{Array\+List}. \\
+\hline
+{\em E} & -\/ element to be appended to this list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on sucess 
+
+false on fail 
+\end{DoxyReturn}
+\Hypertarget{lib_array_list_8h_a9c18061b3fee5c5c14d5eb1755aa2f2a}\label{lib_array_list_8h_a9c18061b3fee5c5c14d5eb1755aa2f2a} 
+\index{libArrayList.h@{libArrayList.h}!ArrayList\_ensureCapacity@{ArrayList\_ensureCapacity}}
+\index{ArrayList\_ensureCapacity@{ArrayList\_ensureCapacity}!libArrayList.h@{libArrayList.h}}
+\doxysubsubsection{\texorpdfstring{ArrayList\_ensureCapacity()}{ArrayList\_ensureCapacity()}}
+{\footnotesize\ttfamily void Array\+List\+\_\+ensure\+Capacity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{size\+\_\+t}]{min\+\_\+capacity }\end{DoxyParamCaption})}
+
+
+
+Increases the capacity of this \doxylink{struct_array_list}{Array\+List} instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity parameter. 
+
+The resulting list will have the size calculated Java 8-\/like dynamic resizing policy (that is greater than the minimum capacity parameter).
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & -\/ a pointer to an \doxylink{struct_array_list}{Array\+List}. \\
+\hline
+{\em min\+\_\+capacity} & -\/ the desired minimum capacity. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lib_array_list_8h_a4b50548ab8722e66e3c5bc4ab02bd337}\label{lib_array_list_8h_a4b50548ab8722e66e3c5bc4ab02bd337} 
+\index{libArrayList.h@{libArrayList.h}!ArrayList\_free@{ArrayList\_free}}
+\index{ArrayList\_free@{ArrayList\_free}!libArrayList.h@{libArrayList.h}}
+\doxysubsubsection{\texorpdfstring{ArrayList\_free()}{ArrayList\_free()}}
+{\footnotesize\ttfamily void Array\+List\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}}]{list }\end{DoxyParamCaption})}
+
+
+
+Destructs the list by freeing alloacted memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & -\/ a pointer to an \doxylink{struct_array_list}{Array\+List}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lib_array_list_8h_a5af1b29483f31d8ce919e88ca96e0545}\label{lib_array_list_8h_a5af1b29483f31d8ce919e88ca96e0545} 
+\index{libArrayList.h@{libArrayList.h}!ArrayList\_get@{ArrayList\_get}}
+\index{ArrayList\_get@{ArrayList\_get}!libArrayList.h@{libArrayList.h}}
+\doxysubsubsection{\texorpdfstring{ArrayList\_get()}{ArrayList\_get()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Array\+List\+\_\+get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+
+
+Returns the element at the specified position in this list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & -\/ a pointer to an \doxylink{struct_array_list}{Array\+List}. \\
+\hline
+{\em index} & -\/ index of the element to return \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the element at the specified position in this list 
+\end{DoxyReturn}
+\Hypertarget{lib_array_list_8h_a745e194cec179a9ab10a72597e8f2972}\label{lib_array_list_8h_a745e194cec179a9ab10a72597e8f2972} 
+\index{libArrayList.h@{libArrayList.h}!ArrayList\_isEmpty@{ArrayList\_isEmpty}}
+\index{ArrayList\_isEmpty@{ArrayList\_isEmpty}!libArrayList.h@{libArrayList.h}}
+\doxysubsubsection{\texorpdfstring{ArrayList\_isEmpty()}{ArrayList\_isEmpty()}}
+{\footnotesize\ttfamily bool Array\+List\+\_\+is\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}}]{list }\end{DoxyParamCaption})}
+
+
+
+Returns true if this list contains no elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & -\/ a pointer to an \doxylink{struct_array_list}{Array\+List}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this list contains no elements. 
+
+false if this list contains at least one element. 
+\end{DoxyReturn}
+\Hypertarget{lib_array_list_8h_a08b6a14a29bb856b73a836822567472d}\label{lib_array_list_8h_a08b6a14a29bb856b73a836822567472d} 
+\index{libArrayList.h@{libArrayList.h}!ArrayList\_new@{ArrayList\_new}}
+\index{ArrayList\_new@{ArrayList\_new}!libArrayList.h@{libArrayList.h}}
+\doxysubsubsection{\texorpdfstring{ArrayList\_new()}{ArrayList\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*} Array\+List\+\_\+new (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{element\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Constructs an empty list with an initial capacity of ten. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element\+\_\+size} & size of each element to be stored in the list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the \doxylink{struct_array_list}{Array\+List} struct. 
+\end{DoxyReturn}
+\Hypertarget{lib_array_list_8h_a28bac2cfbe8ffa04bdaa44d536996a82}\label{lib_array_list_8h_a28bac2cfbe8ffa04bdaa44d536996a82} 
+\index{libArrayList.h@{libArrayList.h}!ArrayList\_remove@{ArrayList\_remove}}
+\index{ArrayList\_remove@{ArrayList\_remove}!libArrayList.h@{libArrayList.h}}
+\doxysubsubsection{\texorpdfstring{ArrayList\_remove()}{ArrayList\_remove()}}
+{\footnotesize\ttfamily bool Array\+List\+\_\+remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+
+
+Removes the element at the specified position in this list. Shifts any subsequent elements to the left (subtracts one from their indices). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & -\/ a pointer to an \doxylink{struct_array_list}{Array\+List}. \\
+\hline
+{\em index} & -\/ the index of the element to be removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on sucess 
+
+false on fail 
+\end{DoxyReturn}
+\Hypertarget{lib_array_list_8h_a7892289b21d7b9e79232423b69295b6f}\label{lib_array_list_8h_a7892289b21d7b9e79232423b69295b6f} 
+\index{libArrayList.h@{libArrayList.h}!ArrayList\_size@{ArrayList\_size}}
+\index{ArrayList\_size@{ArrayList\_size}!libArrayList.h@{libArrayList.h}}
+\doxysubsubsection{\texorpdfstring{ArrayList\_size()}{ArrayList\_size()}}
+{\footnotesize\ttfamily size\+\_\+t Array\+List\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}}]{list }\end{DoxyParamCaption})}
+
+
+
+Returns the number of elements in this list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & -\/ a pointer to an \doxylink{struct_array_list}{Array\+List}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of elements currently in the array. 
+\end{DoxyReturn}
+\Hypertarget{lib_array_list_8h_adc260bb15c12e5c6045139562038a634}\label{lib_array_list_8h_adc260bb15c12e5c6045139562038a634} 
+\index{libArrayList.h@{libArrayList.h}!ArrayList\_trimToSize@{ArrayList\_trimToSize}}
+\index{ArrayList\_trimToSize@{ArrayList\_trimToSize}!libArrayList.h@{libArrayList.h}}
+\doxysubsubsection{\texorpdfstring{ArrayList\_trimToSize()}{ArrayList\_trimToSize()}}
+{\footnotesize\ttfamily void Array\+List\+\_\+trim\+To\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_array_list}{Array\+List}} \texorpdfstring{$\ast$}{*}}]{list }\end{DoxyParamCaption})}
+
+
+
+Trims the capacity of this \doxylink{struct_array_list}{Array\+List} instance to be the list\textquotesingle{}s current size. An application can use this operation to minimize the storage of an \doxylink{struct_array_list}{Array\+List} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & -\/ a pointer to an \doxylink{struct_array_list}{Array\+List}. \\
+\hline
+\end{DoxyParams}
