@@ -1,7 +1,9 @@
 #include "libArrayList.h"
 #include <stdbool.h>
 #include <assert.h>
-ArrayList *ArrayList_new()
+#include <string.h>
+#include <stdlib.h>
+ArrayList *ArrayList_new(size_t element_size)
 {
     ArrayList *list = malloc(sizeof(ArrayList));
     if (list) // check malloc success for list
@@ -9,6 +11,7 @@ ArrayList *ArrayList_new()
         list->size = 0;                    // list initially empty
         list->capacity = DEFAULT_CAPACITY; // DEFAULT_CAPACITY = 10
         list->data = (void **)malloc(DEFAULT_CAPACITY * sizeof(void *));
+        list->element_size = element_size;
         if (!list->data) // check malloc fail for list->data
         {
             free(list);
@@ -39,7 +42,7 @@ bool ArrayList_isEmpty(ArrayList *list)
 void ArrayList_trimToSize(ArrayList *list)
 {
     assert(list != NULL); // ensure parameterized list is valid
-    void *const new_data = realloc(list->data, (list->size * sizeof(void *)));
+    void *const new_data = realloc(list->data, (list->size * list->element_size));
     assert(new_data != NULL); // check for malloc fail
     list->data = new_data;
     list->capacity = list->size;
@@ -47,7 +50,7 @@ void ArrayList_trimToSize(ArrayList *list)
 
 void ArrayList_ensureCapacity(ArrayList *list, size_t min_capacity)
 {
-    assert(list != NULL); // ensure parameterized AL is valid
+    assert(list != NULL); // ensure parameterized list is valid
     size_t new_capacity = list->capacity;
     while (new_capacity < min_capacity)
     {
@@ -55,53 +58,50 @@ void ArrayList_ensureCapacity(ArrayList *list, size_t min_capacity)
         new_capacity = new_capacity + (new_capacity >> 1) + 1; // (+1) in case new_capacity == 0
         assert(new_capacity >= list->capacity);                // check for overflows
     }
-    void *new_data = realloc(list->data, (new_capacity * sizeof(void *)));
+    void *new_data = realloc(list->data, (new_capacity * list->element_size));
     assert(new_data != NULL); // check for malloc fail
     list->data = new_data;
     list->capacity = new_capacity;
 }
 
-bool ArrayList_add(ArrayList *AL, size_t index, const void *E)
+bool ArrayList_add(ArrayList *list, size_t index, void *E)
 {
-    assert(AL != NULL);        // ensure parameterized AL is valid
-    assert(index > 0);         // ensure parameterized index is valid
-    assert(index <= AL->size); // ensure parameterized index is valid
-    assert(E != NULL);         // ensure parameterized E is valid
-    AL->data[index] = E;
+    assert(list != NULL);        // ensure parameterized list is valid
+    assert(index >= 0);          // ensure parameterized index is valid
+    assert(index <= list->size); // ensure parameterized index is valid
+    assert(E != NULL);           // ensure parameterized E is valid
+
+    char *index_ptr = (char *)list->data + (index * list->element_size);
+    // Valid call even for append case (list->size - index == 0)
+    memmove(index_ptr + list->element_size, index_ptr, list->element_size * (list->size - index)); // shift right by one element
+    memcpy(index_ptr, E, list->element_size);
+    list->size++;
     return true;
 }
 
-bool ArrayList_append(ArrayList *AL, const const void *E)
+bool ArrayList_append(ArrayList *AL, void *E)
 {
     assert(AL != NULL); // ensure parameterized AL is valid
     assert(E != NULL);  // ensure parameterized E is valid
     return ArrayList_add(AL, AL->size, E);
 }
 
-bool *ArrayList_remove(ArrayList *AL, size_t index)
+bool ArrayList_remove(ArrayList *list, size_t index)
 {
-    assert(AL != NULL);       // ensure parameterized AL is valid
-    assert(index > 0);        // ensure parameterized index is valid
-    assert(index < AL->size); // ensure parameterized index is valid
+    assert(list != NULL);       // ensure parameterized list is valid
+    assert(index >= 0);         // ensure parameterized index is valid
+    assert(index < list->size); // ensure parameterized index is valid
 
-    void **dest = &(AL->data[index]);
-    void **src = &(AL->data[index + 1]);
-    free(*dest); // deallocate to prevent memory leaks and invalid references
-    /* shift the rest of the list to remove item in AL->data[index] */
-    int i = index + i;
-    while (i < AL->size)
-    {
-        *dest = *src;
-        i++, dest++, src++;
-    }
-    AL->size--;
+    char *index_ptr = (char *)list->data + (index * list->element_size);
+    memmove(index_ptr, index_ptr + list->element_size, (list->size - index + 1) * list->element_size);
+    list->size--;
     return true;
 }
 
-void *ArrayList_get(ArrayList *AL, size_t index)
+void *ArrayList_get(ArrayList *list, size_t index)
 {
-    assert(AL != NULL);       // ensure parameterized AL is valid
-    assert(index > 0);        // ensure parameterized index is valid
-    assert(index < AL->size); // ensure parameterized index is valid
-    return AL->data[index];
+    assert(list != NULL);       // ensure parameterized AL is valid
+    assert(index >= 0);         // ensure parameterized index is valid
+    assert(index < list->size); // ensure parameterized index is valid
+    return list->data + (index * list->element_size);
 }
