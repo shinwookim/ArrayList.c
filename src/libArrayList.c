@@ -1,6 +1,5 @@
 #include "libArrayList.h"
 #include <stdbool.h>
-#include <assert.h>
 #include <string.h>
 #include <stdlib.h>
 ArrayList *ArrayList_new(size_t element_size)
@@ -23,25 +22,29 @@ ArrayList *ArrayList_new(size_t element_size)
 
 void ArrayList_free(ArrayList *list)
 {
-    assert(list != NULL); // ensure parameterized list is valid
+    if (!list) // ensure parameterized list is valid
+        abort();
     free(list->data);
     free(list);
 }
 
 size_t ArrayList_size(ArrayList *list)
 {
-    assert(list != NULL); // ensure parameterized list is valid
+    if (!list) // ensure parameterized list is valid
+        abort();
     return list->size;
 }
 bool ArrayList_isEmpty(ArrayList *list)
 {
-    assert(list != NULL); // ensure parameterized list is valid
+    if (!list) // ensure parameterized list is valid
+        abort();
     return (list->size == 0) ? true : false;
 }
 
 void ArrayList_trimToSize(ArrayList *list)
 {
-    assert(list != NULL); // ensure parameterized list is valid
+    if (!list) // ensure parameterized list is valid
+        abort();
     void *const new_data = realloc(list->data, (list->size * list->element_size));
     assert(new_data != NULL); // check for malloc fail
     list->data = new_data;
@@ -50,7 +53,8 @@ void ArrayList_trimToSize(ArrayList *list)
 
 void ArrayList_ensureCapacity(ArrayList *list, size_t min_capacity)
 {
-    assert(list != NULL); // ensure parameterized list is valid
+    if (!list) // ensure parameterized list is valid
+        abort();
     size_t new_capacity = list->capacity;
     while (new_capacity < min_capacity)
     {
